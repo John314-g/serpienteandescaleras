@@ -1,0 +1,28 @@
+package com.ud.serpientesescalerasmvvm
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+
+class ComienzoActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_comienzo)
+
+        val btnLocal = findViewById<Button>(R.id.btnLocal)
+
+        btnLocal.setOnClickListener {
+            val intent = Intent(this, JuegoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnRegistro = findViewById<Button>(R.id.btnRegistro)
+
+        btnRegistro.setOnClickListener {
+            val intent = Intent(this, RegistroActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+}

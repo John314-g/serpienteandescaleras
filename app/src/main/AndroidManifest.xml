@@ -16,10 +16,16 @@
         <activity
             android:name=".GanadorActivity"
             android:exported="false" /> <!-- No exportada, no accesible desde otras aplicaciones -->
+        <activity
+            android:name=".JuegoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroActivity"
+            android:exported="false" />
 
         <!-- Actividad JuegoActivity, esta es la principal -->
         <activity
-            android:name=".JuegoActivity"
+            android:name=".ComienzoActivity"
             android:exported="true"> <!-- Esta es la actividad principal y exportada -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

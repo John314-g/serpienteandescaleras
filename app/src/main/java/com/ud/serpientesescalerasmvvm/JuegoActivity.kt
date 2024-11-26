@@ -10,7 +10,6 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import com.ud.serpientesescalerasmvvm.R
 import java.util.Locale
 import kotlin.random.Random
 
@@ -574,6 +573,68 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         listaMutable.add(btn24)
 
         return listaMutable
+    }
+
+    fun createNewGame() {
+        val database = com.google.firebase.database.FirebaseDatabase.getInstance()
+        val gamesRef = database.getReference("games")
+
+        val newGameRef = gamesRef.push() // Genera un ID único para la partida
+        val gameId = newGameRef.key // Obtiene el ID generado
+
+        val gameData = mapOf(
+            "player1" to mapOf(
+                "position" to 1,
+                "turn" to true
+            ),
+            "player2" to mapOf(
+                "position" to 1,
+                "turn" to false
+            ),
+            "dice1" to 0,
+            "dice2" to 0,
+            "gameState" to "waiting"
+        )
+
+        newGameRef.setValue(gameData)
+            .addOnSuccessListener {
+                // La partida se ha creado correctamente
+                // Puedes navegar a la pantalla del juego y pasar el gameId
+                // ...
+            }
+            .addOnFailureListener { exception ->
+                // Hubo un error al crear la partida
+                // Maneja el error, por ejemplo, mostrando un mensaje al usuario
+                // ...
+            }
+    }
+
+    fun joinGame(gameId: String) {
+        val database = com.google.firebase.database.FirebaseDatabase.getInstance()
+        val gameRef = database.getReference("games/$gameId")
+
+        gameRef.addListenerForSingleValueEvent(object :
+            com.google.firebase.database.ValueEventListener {
+            override fun onDataChange(snapshot: com.google.firebase.database.DataSnapshot) {
+                if (snapshot.exists()) {
+                    // La partida existe, puedes unirte
+                    // Actualiza la información del jugador 2 en la base de datos
+                    // ...
+                    // Navega a la pantalla del juego
+                    // ...
+                } else {
+                    // La partida no existe
+                    // Muestra un mensaje al usuario
+                    // ...
+                }
+            }
+
+            override fun onCancelled(error: com.google.firebase.database.DatabaseError) {
+                // Hubo un error al obtener la información de la partida
+                // Maneja el error
+                // ...
+            }
+        })
     }
 
 }
