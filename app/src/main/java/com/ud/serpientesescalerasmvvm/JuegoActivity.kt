@@ -54,11 +54,12 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
                 Speak("Player 1 move to position $recorrido1")
 
-                if(recorrido1 == recorrido2){//Este condicional verifica si las dos fichas estan o no en la misma casilla
+                if(recorrido1 == recorrido2){//Este condicional verifica si las dos fichas estan o no en la misma casillabu
                     Botones[recorrido1-1].setBackgroundColor(Color.MAGENTA)
 
                 }else{
                     borrarRastroMagentaJugador1(Jugador1,Botones)
+                    Botones[recorrido1-1].gravity = android.view.Gravity.CENTER
                     Botones[recorrido1-1].setBackgroundColor(Color.BLUE)
                     //Los botones estan en un orden de 0 a 23 (24Botones) por eso es necesario restarle 1 ya que el boton 1 es la posicion 0
                 }
@@ -254,7 +255,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
             }
             else -> {
-                //Todo ok, no pasa nada capo
+                //Todo ok, no pasa nada
             }
         }
     }
@@ -309,7 +310,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
             }
             else -> {
-                //Todo ok, no pasa nada capo
+                //Todo ok, no pasa nada
             }
         }
     }
@@ -364,7 +365,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
             }
             else -> {
-                //Todo ok, no pasa nada capo
+                //Todo ok, no pasa nada
             }
         }
     }
@@ -418,7 +419,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
             }
             else -> {
-                //Todo ok, no pasa nada capo
+                //Todo ok, no pasa nada
             }
         }
     }
@@ -506,7 +507,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             sumadorCasillas += it.Suma //Se extrae el valor de Suma de todos los objetos de la lisa y se van sumando
         }
         if(sumadorCasillas>=24){
-            sumadorCasillas = 24 //Se limita el valor a 24 ya que si fuera mas, se romperia el codigo y lloraria Android
+            sumadorCasillas = 24 //Se limita el valor a 24 ya que si fuera mas, se romperia el codigo
         }
         return sumadorCasillas //Se retorna el recorrido total del jugador
     }
@@ -517,6 +518,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         val jugada = Jugada(dado1,dado2) //Se usa el constructor para asignar el dado 1 y 2
         return jugada //Se retorna el objeto de tipo jugada
     }
+
 
     //Inicializamos todos los botones en la lista de botones del tablero
     fun crearListaBotones(): MutableList<Button> {
@@ -573,5 +575,6 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         return listaMutable
     }
+
 }
 
