@@ -22,6 +22,9 @@
         <activity
             android:name=".RegistroActivity"
             android:exported="false" />
+        <activity
+            android:name=".BuscarPartidaActivity"
+            android:exported="false" />
 
         <!-- Actividad JuegoActivity, esta es la principal -->
         <activity

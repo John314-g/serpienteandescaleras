@@ -24,5 +24,12 @@ class ComienzoActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val btnBuscar = findViewById<Button>(R.id.btnBuscar)
+
+        btnBuscar.setOnClickListener {
+            val intent = Intent(this, BuscarPartidaActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
