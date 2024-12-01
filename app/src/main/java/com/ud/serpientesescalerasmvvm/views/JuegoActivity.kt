@@ -1,4 +1,4 @@
-package com.ud.serpientesescalerasmvvm
+package com.ud.serpientesescalerasmvvm.views
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import com.ud.serpientesescalerasmvvm.R
+import com.ud.serpientesescalerasmvvm.model.Jugada
 import java.util.Locale
 import kotlin.random.Random
 
@@ -40,7 +42,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
         btnJugar.setOnClickListener { //Inicializamos un Onclick Listener para el boton "JUGAR"
-            val jugada:Jugada = play() //Esta funcion retorna un objeto con los dos numeros de los dados de la jugada
+            val jugada: Jugada = play() //Esta funcion retorna un objeto con los dos numeros de los dados de la jugada
 
             dado1.setText("${jugada.Dado1}") //se asigna el valor del dado 1 de la jugada al TextView que representa dicho dado
             dado2.setText("${jugada.Dado2}") //se asigna el valor del dado 2 de la jugada al TextView que representa dicho dado
@@ -53,7 +55,8 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
                 Speak("Player 1 move to position $recorrido1")
 
-                if(recorrido1 == recorrido2){//Este condicional verifica si las dos fichas estan o no en la misma casillabu
+                if(recorrido1 == recorrido2){//Este condicional verifica si las dos fichas estan o no en la misma casillabu,
+                    // This conditional checks whether or not the two pieces are in the same square.
                     Botones[recorrido1-1].setBackgroundColor(Color.MAGENTA)
 
                 }else{
@@ -64,7 +67,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
 
                 if(recorrido1==24){//Si el jugador llega a la casilla final GANA
-                    val intent = Intent(this,GanadorActivity::class.java)
+                    val intent = Intent(this, GanadorActivity::class.java)
                     Ganador("JUGADOR 1",intent)
                 }
 
@@ -77,7 +80,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
 
                 if(jugada.Dado1 + jugada.Dado2 == 6){ //Condicional para repetir turno
-                    ContTurno = 0 //Si saca 6 repite turno
+                    ContTurno = 0 //Si saca 6 repite turno If you roll 6, repeat your turn.
                     backToStart(Jugador1,Botones)
                 }else{
                     ContTurno = 1 //Cambia de turno a jugador 2
@@ -105,7 +108,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 ascenso2(Jugador2,recorrido2,Botones)
 
                 if(recorrido2==24){//Si el jugador llega a la casilla final GANA
-                    val intent = Intent(this,GanadorActivity::class.java)
+                    val intent = Intent(this, GanadorActivity::class.java)
                     Ganador("JUGADOR 2",intent)
                 }
 
@@ -204,7 +207,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     }
 
-    fun ascenso(Jugador: MutableList<Jugada>,recorrido:Int, Botones: MutableList<Button>){
+    fun ascenso(Jugador: MutableList<Jugada>, recorrido:Int, Botones: MutableList<Button>){
         var boton = Button(this)
         boton.setBackgroundColor(Color.RED)
         val botonRojo = (boton.background as? ColorDrawable)?.color
@@ -259,7 +262,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-    fun ascenso2(Jugador: MutableList<Jugada>,recorrido:Int, Botones: MutableList<Button>){
+    fun ascenso2(Jugador: MutableList<Jugada>, recorrido:Int, Botones: MutableList<Button>){
         var boton = Button(this)
         boton.setBackgroundColor(Color.BLUE)
         val botonAzul = (boton.background as? ColorDrawable)?.color
@@ -314,7 +317,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-    fun descenso(Jugador: MutableList<Jugada>,recorrido:Int, Botones: MutableList<Button>){
+    fun descenso(Jugador: MutableList<Jugada>, recorrido:Int, Botones: MutableList<Button>){
         var boton = Button(this)
         boton.setBackgroundColor(Color.RED)
         val botonRojo = (boton.background as? ColorDrawable)?.color
@@ -369,7 +372,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-    fun descenso2(Jugador: MutableList<Jugada>,recorrido:Int, Botones: MutableList<Button>){
+    fun descenso2(Jugador: MutableList<Jugada>, recorrido:Int, Botones: MutableList<Button>){
         var boton = Button(this)
         boton.setBackgroundColor(Color.BLUE)
         val botonAzul = (boton.background as? ColorDrawable)?.color
@@ -511,7 +514,7 @@ class JuegoActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         return sumadorCasillas //Se retorna el recorrido total del jugador
     }
 
-    fun play():Jugada{ //La funcion Play ayuda a crear y retornar un objeto de tipo Jugada el cual tendra dos numeros de dados aleatorios
+    fun play(): Jugada { //La funcion Play ayuda a crear y retornar un objeto de tipo Jugada el cual tendra dos numeros de dados aleatorios
         val dado1:Int = Random.nextInt(1,4) //Se usa un random para representar el numero del dado 1
         val dado2:Int = Random.nextInt(1,4) //Se usa un random para representar el numero del dado 2
         val jugada = Jugada(dado1,dado2) //Se usa el constructor para asignar el dado 1 y 2

@@ -14,21 +14,21 @@
         android:theme="@style/Theme.SerpientesEscalerasMVVM"
         tools:targetApi="35">
         <activity
-            android:name=".GanadorActivity"
+            android:name=".views.GanadorActivity"
             android:exported="false" /> <!-- No exportada, no accesible desde otras aplicaciones -->
         <activity
-            android:name=".JuegoActivity"
+            android:name=".views.JuegoActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistroActivity"
+            android:name=".views.RegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".BuscarPartidaActivity"
+            android:name=".views.BuscarPartidaActivity"
             android:exported="false" />
 
         <!-- Actividad JuegoActivity, esta es la principal -->
         <activity
-            android:name=".ComienzoActivity"
+            android:name=".views.ComienzoActivity"
             android:exported="true"> <!-- Esta es la actividad principal y exportada -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

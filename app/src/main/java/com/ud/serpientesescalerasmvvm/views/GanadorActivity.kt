@@ -1,4 +1,4 @@
-package com.ud.serpientesescalerasmvvm
+package com.ud.serpientesescalerasmvvm.views
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -21,7 +21,7 @@ class GanadorActivity : AppCompatActivity() {
         txtWinner.text = "FELICIDADES HA GANADO EL $mensaje"
 
         btnPlayAgain.setOnClickListener {
-            val intent = Intent(this,JuegoActivity::class.java)
+            val intent = Intent(this, JuegoActivity::class.java)
             startActivity(intent)
         }
 

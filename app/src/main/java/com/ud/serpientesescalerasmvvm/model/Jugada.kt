@@ -1,4 +1,4 @@
-package com.ud.serpientesescalerasmvvm
+package com.ud.serpientesescalerasmvvm.model
 
 class Jugada {
     var Dado1:Int = 0
