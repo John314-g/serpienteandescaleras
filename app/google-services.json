@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "479733061886",
-    "project_id": "serpientesescalerasmvvm",
-    "storage_bucket": "serpientesescalerasmvvm.firebasestorage.app"
+    "project_number": "1043021922985",
+    "firebase_url": "https://serpientes-3b6ea-default-rtdb.firebaseio.com",
+    "project_id": "serpientes-3b6ea",
+    "storage_bucket": "serpientes-3b6ea.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:479733061886:android:30c8993f9e82c922542daf",
+        "mobilesdk_app_id": "1:1043021922985:android:016da6cd46b9321cca5fb8",
         "android_client_info": {
           "package_name": "com.ud.serpientesescalerasmvvm"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBdGeUIwv_-PV8ibwbOOv692ootQFrKwck"
+          "current_key": "AIzaSyCiV9zmli0uXnsNS-nXeV_oqR-m6WXm7j4"
         }
       ],
       "services": {
